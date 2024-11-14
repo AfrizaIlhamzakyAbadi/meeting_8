@@ -1,13 +1,12 @@
-#include <cassert>
 #include <iostream>
 using namespace std;
 struct f
 {
-	long long NISN{};
-	long score{};
+	long long NISN {};
+	long score {};
 	string n{};
 };
-string N[7] = { "Handi Ramadhan", "Rio Alfandra", "Ronaldo Valentino Uneputty", "Achmad Yaumil Fadjri R.", "Alivia Rahma Pramesti", "Ari Lutfianto", "Arief Budiman" };
+string N[7] = { "Handi Ramadhan", "Rio Alfandra", "Ronaldo Valentino Uneputty", "Achmad Yaumil Fadjri R.", "Alivia Rahma Pramesti", "Ari Lutfianto", "Arief Budiman"};
 long long NISN[] = { 9960312699, 9963959682, 9950310962, 9970272750, 9970293945, 9952382180, 9965653989 };
 long score[7] = { 90, 55, 80, 60, 70, 65, 60 };
 void fill(f x[])
@@ -39,7 +38,7 @@ void selection_NISN(f x[])
 {
 	for (int i{ 0 }; i < 6; i++)
 	{
-		long long s = x[i].NISN, k{ i };
+		long long s = x[i].NISN, k{i};
 		for (int j{ 1 }; i + j < 7; j++)
 		{
 			if (s < x[i + j].NISN)
@@ -103,77 +102,46 @@ void bubble_score(f x[])
 		}
 	}
 }
+void print_shorted_NISN(f x[])
+{
+	cout << "NISN		score	name\n";
+	for (int i{ 0 }; i < 7; i++)
+	{
+		cout << x[i].NISN << "	" << x[i].score << "	"<< x[i].n << '\n';
+	}
+	cout << '\n';
+}
+void print_shorted_score(f x[])
+{
+	cout << "score	NISN		name\n";
+	for (int i{ 0 }; i < 7; i++)
+	{
+		cout << x[i].score << "	" << x[i].NISN << "	" << x[i].n << '\n';
+	}
+	cout << '\n';
+}
 int main()
 {
-	f nisn[7];
-	nisn[0].NISN = 9970293945;
-	nisn[1].NISN = 9970272750;
-	nisn[2].NISN = 9965653989;
-	nisn[3].NISN = 9963959682;
-	nisn[4].NISN = 9960312699;
-	nisn[5].NISN = 9952382180;
-	nisn[6].NISN = 9950310962;
-	nisn[0].score = 70;
-	nisn[1].score = 60;
-	nisn[2].score = 60;
-	nisn[3].score = 55;
-	nisn[4].score = 90;
-	nisn[5].score = 65;
-	nisn[6].score = 80;
-	nisn[0].n = "Alivia Rahma Pramesti";
-	nisn[1].n = "Achmad Yaumil Fadjri R.";
-	nisn[2].n = "Arief Budiman";
-	nisn[3].n = "Rio Alfandra";
-	nisn[4].n = "Handi Ramadhan";
-	nisn[5].n = "Ari Lutfianto";
-	nisn[6].n = "Ronaldo Valentino Uneputty";
-	f nilai[7];
-	nilai[0].score = 90;
-	nilai[1].score = 80;
-	nilai[2].score = 70;
-	nilai[3].score = 65;
-	nilai[4].score = 60;
-	nilai[5].score = 60;
-	nilai[6].score = 55;
-	nilai[0].NISN = 9960312699;
-	nilai[1].NISN = 9950310962;
-	nilai[2].NISN = 9970293945;
-	nilai[3].NISN = 9952382180;
-	nilai[4].NISN = 9970272750;
-	nilai[5].NISN = 9965653989;
-	nilai[6].NISN = 9963959682;
-	nilai[0].n = "Handi Ramadhan";
-	nilai[1].n = "Ronaldo Valentino Uneputty";
-	nilai[2].n = "Alivia Rahma Pramesti";
-	nilai[3].n = "Ari Lutfianto";
-	nilai[4].n = "Achmad Yaumil Fadjri R.";
-	nilai[5].n = "Arief Budiman";
-	nilai[6].n = "Rio Alfandra";
-	f A[7], B[7], C[7], D[7], E[7], F[7];
+	f A[7], B[7], C[7], D[7], E[7],	F[7];
+	cout << "by NISN\n\n";
 	fill(A);
+	insertion_NISN(A);
+	print_shorted_NISN(A);
 	fill(B);
+	selection_NISN(B);
+	print_shorted_NISN(B);
 	fill(C);
+	bubble_NISN(C);
+	print_shorted_NISN(C);
+	cout << "___________________\n\n" << "by score\n\n";
 	fill(D);
 	fill(E);
 	fill(F);
-	insertion_NISN(A);
-	selection_NISN(B);
-	bubble_NISN(C);
 	insertion_score(D);
 	selection_score(E);
 	bubble_score(F);
-#ifdef NDEBUG
-	cerr << "Tests run with NDEBUG defined (asserts compiled out)";
-	abort();
-#endif
-	for (int i{ 0 }; i < 7; i++)
-	{
-		assert(A[i].NISN = nisn[i].NISN);
-		assert(B[i].NISN = nisn[i].NISN);
-		assert(C[i].NISN = nisn[i].NISN);
-		assert(A[i].score = nisn[i].score);
-		assert(B[i].score = nisn[i].score);
-		assert(C[i].score = nisn[i].score);
-	}
-	cout << "All tests succeeded.";
+	print_shorted_score(D);
+	print_shorted_score(E);
+	print_shorted_score(F);
+	return 0;
 }
