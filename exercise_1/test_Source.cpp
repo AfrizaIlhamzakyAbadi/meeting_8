@@ -174,6 +174,61 @@ int main()
 		assert(A[i].score = nisn[i].score);
 		assert(B[i].score = nisn[i].score);
 		assert(C[i].score = nisn[i].score);
+		assert(D[i].NISN = nilai[i].NISN);
+		assert(E[i].NISN = nilai[i].NISN);
+		assert(F[i].NISN = nilai[i].NISN);
+		assert(D[i].score = nilai[i].score);
+		assert(E[i].score = nilai[i].score);
+		assert(F[i].score = nilai[i].score);
+		if (A[i].n == nisn[i].n)
+		{
+		}
+		else
+		{
+			cout << "function insertion_NISN doesn't give the right struct name for index [" << i << "].";
+			abort();
+		}
+		if (B[i].n == nisn[i].n)
+		{
+		}
+		else
+		{
+			cout << "function seection_NISN doesn't give the right struct name for index [" << i << "].";
+			abort();
+		}
+		if (C[i].n == nisn[i].n)
+		{
+		}
+		else
+		{
+			cout << "function bubble_NISN doesn't give the right struct name for index [" << i << "].";
+			abort();
+		}
+		if (D[i].n == nilai[i].n)
+		{
+		}
+		else
+		{
+			cout << "function insertion_score doesn't give the right struct name for index [" << i << "].";
+			abort();
+		}
+		if(E[i].n == nilai[i].n)
+		{
+		}
+		else
+		{
+			cout << "function selection_score doesn't give the right struct name for index [" << i << "].";
+			abort();
+		}
+		if(F[i].n == nilai[i].n)
+		{
+		}
+		else
+		{
+			cout << "function bubble_score doesn't give the right struct name for index [" << i << "].";
+			abort();
+		}
 	}
 	cout << "All tests succeeded.";
+	return 0;
 }
